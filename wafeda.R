@@ -1,6 +1,9 @@
 library(shiny)
 library(tidyverse)
+library(data.table)
 library(rlang)
+library(shinythemes)
+library(waiter)
 
 not_sel = "Not Selected"
 
@@ -11,6 +14,7 @@ main_page <- tabPanel(
   titlePanel("Analysis"),
   sidebarLayout(
     sidebarPanel(
+      autoWaiter(html = spin_orbit()),
       title = "Inputs",
       fileInput("upload", NULL, accept = c(".csv", ".tsv")),
       numericInput("n","Number of rows", value = 5),
@@ -23,10 +27,14 @@ main_page <- tabPanel(
       tabsetPanel(
         tabPanel(
           title = "Data",
-          tableOutput("head")
+          fluidRow(strong(textOutput("top_n_rows"))),
+          fluidRow(tableOutput("head")),
+          fluidRow(strong(textOutput("skim_table"))),
+          fluidRow(tableOutput("data_summary"))
         ),
         tabPanel(
           title = "Plot",
+          autoWaiter(),
           plotOutput("plot_1")
         ),
         tabPanel(
@@ -57,7 +65,13 @@ main_page <- tabPanel(
 #-----------------------------------
 about_page <- tabPanel(
   title = "About", titlePanel("About"),
-  "Created with R Shiny", br(), "2022 March")
+  "WAFEDA (Web App For Exploratory Data Analysis) is a shinyapp created to ease the process of
+   performing EDA, which can be accessible on mobile and PC", br(),
+  "Created with R Shiny by",
+  fluidPage(uiOutput("tab")),
+  "Source code on",
+  fluidPage(uiOutput("tab2")),
+  br(), "2022 March")
 
 #function generating plots
 #-------------------------------------------------------
@@ -103,21 +117,23 @@ draw_plot_1 <- function(data_input, num_var_1, num_var_2, fact_var){
 }
 
 #function generating numeric variable statistics
+#------------------------------------------------------
 create_num_var_table <- function(data_input, num_var){
   if(num_var != not_sel){
     col <- data_input[,get(num_var)]
     if (length(col)>5000) col_norm <- sample(col,5000) else col_norm <- col
     norm_test <- shapiro.test(col_norm)
     statistic <- c("mean", "median", "5th percentile", "95th percentile",
-                   "Shapiro statistic", "Shapiro p-value")
+                   "Shapiro statistic", "Shapiro p-value", "missing values")
     value <- c(round(mean(col),2), round(median(col),2),
                round(quantile(col, 0.05),2), round(quantile(col, 0.95),2),
-               norm_test$statistic, norm_test$p.value)
+               norm_test$statistic, norm_test$p.value, sum(is.na(col)))
     data.table(statistic, value)
   }
 }
 
 #function generating factor variable statistics
+#-------------------------------------------------
 create_fact_var_table <- function(data_input, fact_var){
   if(fact_var != not_sel){
     freq_tbl <- data_input[,.N, by = get(fact_var)]
@@ -127,6 +143,7 @@ create_fact_var_table <- function(data_input, fact_var){
 }
 
 #function generating combined table statistics
+#---------------------------------------------------
 create_combined_table <- function(data_input, num_var_1, num_var_2, fact_var){
   if(fact_var != not_sel){
     if(num_var_1 != not_sel & num_var_2 != not_sel){
@@ -153,13 +170,45 @@ create_combined_table <- function(data_input, num_var_1, num_var_2, fact_var){
 #----------------------------------------
 ui <- 
   navbarPage(
-  title = "mini EDA", 
+  title = "WAFEDA", 
+  theme = shinytheme("superhero"),
   main_page, 
-  about_page)
+  about_page
+  )
 
 #back_end
 #---------------------------------------------
 server <- function(input, output, session) {
+  
+  #top n rows
+  top_n <- eventReactive(input$n, paste("Top", input$n, "rows"))
+  output$top_n_rows <- renderText(top_n())
+  
+  #Data Summary
+  output$skim_table <- renderText("Data Summary")
+  
+  #summary of data
+  summary_data <- reactive(skimr::skim(data()))
+  
+  output$data_summary <- renderTable(summary_data())
+  
+  #link to Adejumo Ridwan Suleiman
+  url <- a("Adejumo Ridwan Suleiman", 
+           href="https://www.adejumoridwan.com/about/about-me/",
+           target = "_blank")
+  output$tab <- renderUI({
+    tagList(url)
+  })
+  
+  #link to source code
+  url2 <- a("Github", 
+           href="https://github.com/adejumoridwan/miniEDA/blob/main/miniEDAapp.R",
+           target = "_blank")
+  output$tab2 <- renderUI({
+    tagList(url2)
+  })
+  
+  #uploaded data
   data <- reactive({
     req(input$upload)
     fread(input$upload$datapath)
@@ -181,12 +230,14 @@ server <- function(input, output, session) {
   num_var_2 <- eventReactive(input$run_button,input$num_var_2)
   fact_var <- eventReactive(input$run_button,input$fact_var)
   
+  #plot
   plot_1 <- eventReactive(input$run_button,{
     draw_plot_1(data(), num_var_1(), num_var_2(), fact_var())
   })
   
   output$plot_1 <- renderPlot(plot_1())
   
+  #numeric variable 1
   output$num_var_1_title <- 
     renderText(paste("Num Var 1:",num_var_1()))
   
@@ -197,6 +248,7 @@ server <- function(input, output, session) {
   output$num_var_1_summary_table <- 
     renderTable(num_var_1_summary_table(),colnames = FALSE)
   
+  #numeric variable 2
   output$num_var_2_title <- 
     renderText(paste("Num Var 2:",num_var_2()))
   
@@ -207,6 +259,7 @@ server <- function(input, output, session) {
   output$num_var_2_summary_table <- 
     renderTable(num_var_2_summary_table(),colnames = FALSE)
   
+  #factor variable
   output$fact_var_title <- 
     renderText(paste("Factor Var:",fact_var()))
   
@@ -217,6 +270,7 @@ server <- function(input, output, session) {
   output$fact_var_summary_table <- 
     renderTable(fact_var_summary_table(), colnames = FALSE)
   
+  #combined summary table
   combined_summary_table <- eventReactive(input$run_button,{
     create_combined_table(data(), num_var_1(), num_var_2(), fact_var())
   })
