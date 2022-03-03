@@ -203,7 +203,7 @@ server <- function(input, output, session) {
   
   #link to source code
   url2 <- a("Github", 
-            href="https://github.com/adejumoridwan/miniEDA/blob/main/miniEDAapp.R",
+            href="https://github.com/adejumoridwan/WAFEDA/blob/main/app.R",
             target = "_blank")
   output$tab2 <- renderUI({
     tagList(url2)
