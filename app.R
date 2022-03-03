@@ -2,8 +2,8 @@ library(shiny)
 library(tidyverse)
 library(data.table)
 library(rlang)
-library(shinythemes)
 library(waiter)
+library(shinythemes)
 
 not_sel = "Not Selected"
 
@@ -14,7 +14,8 @@ main_page <- tabPanel(
   titlePanel("Analysis"),
   sidebarLayout(
     sidebarPanel(
-      autoWaiter(html = spin_orbit()),
+      autoWaiter(html = spin_orbit(),
+                 color = "white"),
       title = "Inputs",
       fileInput("upload", NULL, accept = c(".csv", ".tsv")),
       numericInput("n","Number of rows", value = 5),
@@ -202,8 +203,8 @@ server <- function(input, output, session) {
   
   #link to source code
   url2 <- a("Github", 
-           href="https://github.com/adejumoridwan/miniEDA/blob/main/miniEDAapp.R",
-           target = "_blank")
+            href="https://github.com/adejumoridwan/miniEDA/blob/main/miniEDAapp.R",
+            target = "_blank")
   output$tab2 <- renderUI({
     tagList(url2)
   })
