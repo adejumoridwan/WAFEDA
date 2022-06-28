@@ -62,7 +62,7 @@ Upload the data as a `csv` format and also displays the top row headers.
 
 ### Data Visualization
 Plot simple visualizations such as scatter plot.
-<img width="960" alt="b" src="https://user-images.githubusercontent.com/71537374/176179819-bf6d528e-d1c5-430b-88d5-73ca75d9f8ab.png">
+<img width="960" alt="c" src="https://user-images.githubusercontent.com/71537374/176182456-1bb1ae24-82ad-4fb0-8ed2-b6b21102839a.png">
 
 ### Summary Statistics
 Display simple summary statistics that can be understood by someone with basic statistical understanding.
