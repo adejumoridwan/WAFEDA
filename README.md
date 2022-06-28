@@ -51,10 +51,10 @@ WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to e
 
 ### Importing Data
 Upload the data as a `csv` format which also shows the summary statistics.
-![Importing the California Housing Dataset]("C:\Users\User\Documents\WAFEDA\images\b.png")
+![Importing the California Housing Dataset]("\images\b.png")
 
 ### Data Visualization
-![Scatter plot of Income against Value grouped by ocean proximity]("C:\Users\User\Documents\WAFEDA\images\c.png")
+![Scatter plot of Income against Value grouped by ocean proximity]("\images\c.png")
 
 
 ### Prerequisites
