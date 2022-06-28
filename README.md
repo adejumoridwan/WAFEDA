@@ -29,7 +29,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <img width="960" alt="a" src="https://user-images.githubusercontent.com/71537374/176179159-c01dd45b-3c81-4ba9-bcd9-48be19008a42.png">
-![WAFEDA](https://github.com/adejumoridwan/WAFEDA/images/a.jpg?raw=true")
 
 WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to ease Exploratory Data Analysis and also solve small business problems among those who find it difficult to code data analysis or visualizations such as R and Python.
 
@@ -49,53 +48,27 @@ WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to e
 <!-- GETTING STARTED -->
 ## Getting Started
 
+### Installation
+
+No installation, you can easily access it on the [Web](https://ridwan-adejumo-suleiman.shinyapps.io/WAFEDA/?_ga=2.58495277.663747270.1646329263-556426440.1629003048)
+
+## Usage
+The following are ways in which you can use [WAFEDA](https://ridwan-adejumo-suleiman.shinyapps.io/WAFEDA/?_ga=2.58495277.663747270.1646329263-556426440.1629003048)
+
 ### Importing Data
-Upload the data as a `csv` format which also shows the summary statistics.
-![Importing the California Housing Dataset]("\images\b.png")![Uploading a.png…]()
+Upload the data as a `csv` format and also displays the top row headers.
+<img width="960" alt="b" src="https://user-images.githubusercontent.com/71537374/176179629-d1e7f404-b330-44c9-9501-7839d4a6b374.png">
 
 
 ### Data Visualization
-![Scatter plot of Income against Value grouped by ocean proximity]("\images\c.png")
+Plot simple visualizations such as scatter plot.
+<img width="960" alt="b" src="https://user-images.githubusercontent.com/71537374/176179819-bf6d528e-d1c5-430b-88d5-73ca75d9f8ab.png">
+
+### Summary Statistics
+Display simple summary statistics that can be understood by someone with basic statistical understanding.
+<img width="960" alt="Annotation 2022-06-22 182549" src="https://user-images.githubusercontent.com/71537374/176180624-6b484ada-27ac-4419-8a06-e579cad6ed79.png">
 
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
