@@ -72,8 +72,6 @@ Display simple summary statistics that can be understood by someone with basic s
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [LinkedIn]([https://twitter.com/your_username](https://www.linkedin.com/in/ridwan-adejumo-suleiman-03461a178/)) - email@example.com
-
-Project Link: [WAFEDA]([https://github.com/your_username/repo_name](https://github.com/adejumoridwan/WAFEDA))
+Adejumo Ridwan Suleiman - [LinkedIn]([https://twitter.com/your_username](https://www.linkedin.com/in/ridwan-adejumo-suleiman-03461a178/)) - adejumo999@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
