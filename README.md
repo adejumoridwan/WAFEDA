@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![WAFEDA]("C:\Users\User\Documents\WAFEDA\images\Annotation 2022-06-28 130453.png")
+![WAFEDA]("C:\Users\User\Documents\WAFEDA\images\a.png")
 
 WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to ease Exploratory Data Analysis and also solve small business problems among those who find it difficult to code data analysis or visualizations such as R and Python.
 
@@ -51,10 +51,10 @@ WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to e
 
 ### Importing Data
 Upload the data as a `csv` format which also shows the summary statistics.
-![Importing the California Housing Dataset]("C:\Users\User\Documents\WAFEDA\images\Annotation 2022-06-22 182646.png")
+![Importing the California Housing Dataset]("C:\Users\User\Documents\WAFEDA\images\b.png")
 
 ### Data Visualization
-![Scatter plot of Income against Value grouped by ocean proximity]("C:\Users\User\Documents\WAFEDA\images\Annotation 2022-06-22 182615.png")
+![Scatter plot of Income against Value grouped by ocean proximity]("C:\Users\User\Documents\WAFEDA\images\c.png")
 
 
 ### Prerequisites
