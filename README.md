@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![WAFEDA]("C:\Users\User\Documents\WAFEDA\images\a.png")
+![WAFEDA](https://github.com/adejumoridwan/WAFEDA/images/a.jpg?raw=true")
 
 WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to ease Exploratory Data Analysis and also solve small business problems among those who find it difficult to code data analysis or visualizations such as R and Python.
 
