@@ -2,7 +2,7 @@
 ## About The Project
 <img width="960" alt="a" src="https://user-images.githubusercontent.com/71537374/176179159-c01dd45b-3c81-4ba9-bcd9-48be19008a42.png">
 
-WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to ease Exploratory Data Analysis and also solve small business problems among those who find it difficult to code data analysis or visualizations such as R and Python.
+WAFEDA stands for **Web App for Exploratory Data Analysis** and was created to ease data analysis in small businesses and also to save the stress of loaidng complex tools such as R or Python just to perform a small business analysis.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
